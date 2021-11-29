@@ -52,9 +52,9 @@
     <!-- Jumbotron -->
 
     <section class="jumbotron text-center">
-      <img src="img/fotoku.jpg" alt="Septi Dwi S" width="150" class="rounded-circle img-thumbnail" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="500" />
-      <h1 class="display-4">Hello, world!</h1>
-      <p class="lead">Programer | Gamer</p>
+      <img src="img/fotoku.jpg" alt="Septi Dwi S" width="150" class="rounded-circle img-thumbnail" />
+      <h1 class="display-4">Hello, I'm Septi Dwi Santoso</h1>
+      <p class="lead"></p>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path
           fill="#fff"
@@ -146,6 +146,40 @@
           </div>
         </div>
       </div>
+
+      <section id="my-device">
+        <div class="container">
+          <div class="row text-center mb-3">
+            <div class="col">
+              <h2>My Device</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 col-lg-4 mb-3">
+              <div class="device-box">
+                <h4 class="device-name">Keyboard Gaming</h4>
+                <img src="img/device/keyboard.png" alt="device1" class="device-img" />
+                <a href="#" class="btn btn-light device-detail-button">Show Detail</a>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-3">
+              <div class="device-box">
+                <h4 class="device-name">Keyboard Gaming</h4>
+                <img src="img/device/mouse.png" alt="device2" class="device-img" />
+                <a href="#" class="btn btn-light device-detail-button">Show Detail</a>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-3">
+              <div class="device-box">
+                <h4 class="device-name">Keyboard Gaming</h4>
+                <img src="img/device/laptop.png" alt="device3" class="device-img" />
+                <a href="#" class="btn btn-light device-detail-button">Show Detail</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path
           fill="#fff"
@@ -158,20 +192,67 @@
 
     <!-- Gallery -->
 
-    <!-- <section id="gallery">
+    <section id="gallery">
       <div class="container">
         <div class="row text-center mb-3">
           <div class="col">
             <h2>Gallery</h2>
           </div>
         </div>
-        <div class="row">
-            <div class="col-md-3">
-                <a href=""></a>
-            </div>
+        <div class="row justify-content-center">
+          <div class="col-md-3">
+            <a href="#">
+              <img src="img/gallery/thumbnail/1.jpg" alt="gambar1" class="img-fluid gallery-img" />
+            </a>
+          </div>
+          <div class="col-md-3">
+            <a href="#">
+              <img src="img/gallery/thumbnail/2.jpg" alt="gambar2" class="img-fluid gallery-img" />
+            </a>
+          </div>
+          <div class="col-md-3">
+            <a href="#">
+              <img src="img/gallery/thumbnail/3.jpg" alt="gambar3" class="img-fluid gallery-img" />
+            </a>
+          </div>
+          <div class="col-md-3">
+            <a href="#">
+              <img src="img/gallery/thumbnail/4.jpg" alt="gambar4" class="img-fluid gallery-img" />
+            </a>
+          </div>
+          <div class="col-md-3">
+            <a href="#">
+              <img src="img/gallery/thumbnail/5.jpg" alt="gambar5" class="img-fluid gallery-img" />
+            </a>
+          </div>
+          <div class="col-md-3">
+            <a href="#">
+              <img src="img/gallery/thumbnail/6.jpg" alt="gambar6" class="img-fluid gallery-img" />
+            </a>
+          </div>
+          <div class="col-md-3">
+            <a href="#">
+              <img src="img/gallery/thumbnail/7.jpg" alt="gambar7" class="img-fluid gallery-img" />
+            </a>
+          </div>
+          <div class="col-md-3">
+            <a href="#">
+              <img src="img/gallery/thumbnail/8.jpg" alt="gambar8" class="img-fluid gallery-img" />
+            </a>
+          </div>
+          <div class="col-md-3">
+            <a href="#">
+              <img src="img/gallery/thumbnail/9.jpg" alt="gambar9" class="img-fluid gallery-img" />
+            </a>
+          </div>
+          <div class="col-md-3">
+            <a href="#">
+              <img src="img/gallery/thumbnail/10.jpg" alt="gambar10" class="img-fluid gallery-img" />
+            </a>
+          </div>
         </div>
       </div>
-    </section> -->
+    </section>
     <!-- End Gallery -->
 
     <!-- Contact -->
@@ -234,9 +315,26 @@
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
+      const galleryImage = document.querySelectorAll(".gallery-img");
+      galleryImage.forEach((img, i) => {
+        img.dataset.aos = "fade-down";
+        img.dataset.aosDelay = i * 100;
+        img.dataset.aosDuration = 1000;
+      });
+
       AOS.init({
         once: true,
       });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/TextPlugin.min.js"></script>
+    <script>
+      gsap.registerPlugin(TextPlugin);
+      gsap.to(".lead", { duration: 1.5, delay: 1.5, text: "Programer | Gamer" });
+      gsap.from(".jumbotron img", { duration: 1, rotateY: 360, opacity: 0 });
+      gsap.from(".navbar", { duration: 1.5, y: "-100%", opacity: 0, ease: "bounce" });
+      gsap.from(".display-4", { duration: 1, x: -50, opacity: 0, delay: 0.5, ease: "back" });
     </script>
 
     <script>
@@ -265,6 +363,15 @@
             console.log("Success!", response);
           })
           .catch((error) => console.error("Error!", error.message));
+      });
+    </script>
+
+    <script type="text/javascript" src="js/vanilla-tilt.min.js"></script>
+    <script type="text/javascript">
+      VanillaTilt.init(document.querySelectorAll(".device-box"), {
+        max: 35,
+        speed: 500,
+        glare: true,
       });
     </script>
   </body>
